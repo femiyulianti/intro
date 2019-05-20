@@ -1588,7 +1588,7 @@ div.tocify {
 <p>Anda dapat menggunakan paket <code>readr</code> untuk mengimpor berkas lokal di komputer atau dari pranala (URL). Anda dapat mengaktifkan paket <code>readr</code> dengan cara menjalankan <code>library(nama_paket</code>) seperti contoh berikut: (Petunjuk: Tekan Ctrl + Enter untuk menjalankan baris kode.)</p>
 <pre class="r"><code>library(readr)</code></pre>
 <p>Paket hanya perlu dipasang satu kali melalui fungsi <code>install.packages(&quot;nama_paket&quot;)</code> dan harus selalu diaktifkan setiap menggawali kerja menggunakan R agar fungsi-fungsi yang tersedia dalam paket tersebut dapat digunakan. Sebagai contoh, kita akan menggunakan fungsi <code>read_csv()</code> dari paket <code>readr</code> untuk mengimpor data ‘evals.csv’ dari folder ‘data-raw’ sebagai berikut:</p>
-<pre class="r"><code>evals &lt;- read_csv(&quot;E:/Belajar/Machine Learning/Racademy/intro/data-raw/evals.csv&quot;)# \ diubah dulu pakai /</code></pre>
+<pre class="r"><code>evals &lt;- read_csv(&quot;E:/Belajar/Machine Learning/Racademy/intro/data-raw/evals.csv&quot;)# \ diubah dulu pakai / </code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
@@ -1708,7 +1708,7 @@ div.tocify {
 ##  581    &lt;U+2587&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2581&gt;
 ##    5    &lt;U+2581&gt;&lt;U+2581&gt;&lt;U+2582&gt;&lt;U+2583&gt;&lt;U+2585&gt;&lt;U+2587&gt;&lt;U+2587&gt;&lt;U+2586&gt;</code></pre>
 <p>Umumnya berkas <code>csv</code> menggunakan penanda koma (,) untuk memisahkan antar kolom dan titik (.) sebagai penanda desimal. Namun bagaimana jika Anda memiliki berkas <code>csv</code> yang yang menggunakan titik-koma (;) untuk memisahkan kolom dan koma (,) sebagai penanda desimal? Sebagai contoh, pada direktori <code>data-raw</code> terdapar berkas <code>evals2</code> yang memiliki kriteria tersebut. Anda dapat menggunakan fungsi <code>read_csv2</code> untuk mengimpor berkas tersebut sebagaimana ditunjukan pada contoh berikut:</p>
-<pre class="r"><code>evals2 &lt;- read_csv2(&quot;E:/Belajar/Machine Learning/Racademy/intro/data-raw/evals2.csv&quot;)</code></pre>
+<pre class="r"><code>evals2 &lt;- read_csv2(&quot;../data-raw/evals2.csv&quot;)#lebih baik pakai path relative seperti ini dari pada pakai yang absolute seperti evals di atas</code></pre>
 <pre><code>## Using &#39;,&#39; as decimal and &#39;.&#39; as grouping mark. Use read_delim() for more control.</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -1769,7 +1769,7 @@ div.tocify {
 <p>Demi memahami konsep Tidy Data, kita akan menggunakan dataset yang tersedia di paket <code>tidyr</code>. Aktifkanlah paket <code>tidyr</code> tersebut!</p>
 <pre class="r"><code>library(tidyr)</code></pre>
 <p>Dari dataset berikut ini, manakah yang termasuk Tidy Data? Dapatkah Anda menjelaskan alasan mengapa beberapa dataset berikut tidak <em>tidy</em>?</p>
-<pre class="r"><code>table1</code></pre>
+<pre class="r"><code>table1 #__</code></pre>
 <pre><code>## # A tibble: 6 x 4
 ##   country      year  cases population
 ##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
@@ -1779,7 +1779,7 @@ div.tocify {
 ## 4 Brazil       2000  80488  174504898
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
-<pre class="r"><code>table2</code></pre>
+<pre class="r"><code>table2 # populasi dan cases disatukan dalam satu kolom--&gt; var disimpan sebagai baris</code></pre>
 <pre><code>## # A tibble: 12 x 4
 ##    country      year type            count
 ##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
@@ -1795,7 +1795,7 @@ div.tocify {
 ## 10 China        1999 population 1272915272
 ## 11 China        2000 cases          213766
 ## 12 China        2000 population 1280428583</code></pre>
-<pre class="r"><code>table3</code></pre>
+<pre class="r"><code>table3 # tipe data tidak sesuai di rate</code></pre>
 <pre><code>## # A tibble: 6 x 3
 ##   country      year rate             
 ## * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
@@ -1805,21 +1805,21 @@ div.tocify {
 ## 4 Brazil       2000 80488/174504898  
 ## 5 China        1999 212258/1272915272
 ## 6 China        2000 213766/1280428583</code></pre>
-<pre class="r"><code>table4a</code></pre>
+<pre class="r"><code>table4a # baris (observasi) disimpan sebagai kolom</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   country     `1999` `2000`
 ## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
 ## 1 Afghanistan    745   2666
 ## 2 Brazil       37737  80488
 ## 3 China       212258 213766</code></pre>
-<pre class="r"><code>table4b</code></pre>
+<pre class="r"><code>table4b #tidak tahu mana yang kasus mana yang populasi</code></pre>
 <pre><code>## # A tibble: 3 x 3
 ##   country         `1999`     `2000`
 ## * &lt;chr&gt;            &lt;int&gt;      &lt;int&gt;
 ## 1 Afghanistan   19987071   20595360
 ## 2 Brazil       172006362  174504898
 ## 3 China       1272915272 1280428583</code></pre>
-<pre class="r"><code>table5</code></pre>
+<pre class="r"><code>table5 # year nya jadi dua kolom; nilai rate juga gabungan dari dua kolom</code></pre>
 <pre><code>## # A tibble: 6 x 4
 ##   country     century year  rate             
 ## * &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            

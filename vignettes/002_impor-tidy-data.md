@@ -32,7 +32,7 @@ Paket hanya perlu dipasang satu kali melalui fungsi `install.packages("nama_pake
 
 
 ```r
-evals <- read_csv("E:/Belajar/Machine Learning/Racademy/intro/data-raw/evals.csv")# \ diubah dulu pakai /
+evals <- read_csv("E:/Belajar/Machine Learning/Racademy/intro/data-raw/evals.csv")# \ diubah dulu pakai / 
 ```
 
 ```
@@ -206,7 +206,7 @@ Umumnya berkas `csv` menggunakan penanda koma (,) untuk memisahkan antar kolom d
 
 
 ```r
-evals2 <- read_csv2("E:/Belajar/Machine Learning/Racademy/intro/data-raw/evals2.csv")
+evals2 <- read_csv2("../data-raw/evals2.csv")#lebih baik pakai path relative seperti ini dari pada pakai yang absolute seperti evals di atas
 ```
 
 ```
@@ -314,7 +314,7 @@ Dari dataset berikut ini, manakah yang termasuk Tidy Data? Dapatkah Anda menjela
 
 
 ```r
-table1
+table1 #__
 ```
 
 ```
@@ -330,7 +330,7 @@ table1
 ```
 
 ```r
-table2
+table2 # populasi dan cases disatukan dalam satu kolom--> var disimpan sebagai baris
 ```
 
 ```
@@ -352,7 +352,7 @@ table2
 ```
 
 ```r
-table3
+table3 # tipe data tidak sesuai di rate
 ```
 
 ```
@@ -368,7 +368,7 @@ table3
 ```
 
 ```r
-table4a
+table4a # baris (observasi) disimpan sebagai kolom
 ```
 
 ```
@@ -381,7 +381,7 @@ table4a
 ```
 
 ```r
-table4b
+table4b #tidak tahu mana yang kasus mana yang populasi
 ```
 
 ```
@@ -394,7 +394,7 @@ table4b
 ```
 
 ```r
-table5
+table5 # year nya jadi dua kolom; nilai rate juga gabungan dari dua kolom
 ```
 
 ```
