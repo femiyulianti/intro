@@ -3,16 +3,16 @@ title: "Model"
 author: "Muhammad Aswan Syahputra"
 date: "4/9/2019"
 output:
-  html_document: 
-    df_print: default
-    fig_height: 6
-    fig_width: 9
-    highlight: textmate
-    keep_md: yes
-    theme: yeti
-    toc: yes
-    toc_collapsed: yes
-    toc_float: yes
+  github_document: 
+    #df_print: default
+    #fig_height: 6
+    #fig_width: 9
+    #highlight: textmate
+    #keep_md: yes
+    #theme: yeti
+    #toc: yes
+    #toc_collapsed: yes
+    #toc_float: yes
 editor_options: 
   chunk_output_type: inline
 ---
@@ -26,10 +26,10 @@ Pemodelan bertujuan utama untuk menyederhanakan suatu fenomena sehingga melalui 
 Terdapat berbagai jenis model tersedia saat ini, contohnya : *tree-based model*, *neural network*, *deep learning* dan lain-lain. Namun, pada modul pengantar ini kita akan mempelajari satu jenis model mendasar yaitu regresi linier untuk membentuk pemahaman mengenai konsep modeling. Paket yang akan digunakan adalah `readr`, `modelr`, `broom` dan `ggplot2`. Aktifkanlah semua paket tersebut!
 
 ```{r}
-# ___
-# ___
-# ___
-# ___
+library(readr)
+library(modelr)
+library(broom)
+library(ggplot2)
 ```
 
 Dalam regresi linier selalu hanya ada satu *outcome variable* `y` dan satu atau lebih *predictor/explanatory variable(s)*. Anda akan mempergunakan dataset `evals` untuk melakukan pemodelan. Dataset `evals` tersebut berisikan skor penilaian terhadap pengajar beserta faktor-faktor lain yang berkaitan dengan individu pengajar atau kelas yang diajar. Imporlah dataset tersebut dengan melengkapi baris kode dibawah ini. Ada berapa observasi dan ada variabel pada dataset tersebut?
@@ -80,7 +80,7 @@ Selanjutnya Anda ingin mengetahui `fitted value` (nilai `y hat` yang didapatkan 
 # menggunakan paket broom
 model1_vals_broom <- 
   model1 %>% 
-  augment()
+  augment() #fungsi untuk menambahkan kolom2 baru berisi nilai statistik lainnya yang dapat digunakan dalam menggambarkan nilai yang observasi dengan nilai prediksi
 
 ggplot(model1_vals_broom, aes(x = bty_avg, y = score)) +
   geom____() +
@@ -101,15 +101,17 @@ Perbedaan apa yang paling nampak antara `model1_vals_broom` dan `model1_vals_mod
 
 ```{r}
 model1_vals_broom
-model1_vals_modelr
+model1_vals_modelr #data asi + prediktif + residual
 ```
 
 Menariknya, dengan menggunakan `ggplot2` Anda bisa langsung menambahkan garis `fitted value` tersebut ke dalam grafik dengan menambahkan `geom_smooth()` pada baris kode. Lengkapilah baris kode tersebut dengan 'method' yang sesuai dan bandingkan hasilnya dengan grafik-grafik sebelumnya!
 
 ```{r}
+#model2<- lm(score)
 ggplot(evals, aes(x = bty_avg, y = score)) +
   geom____() +
-  geom_smooth(method = "___")
+  geom_smooth(method = "___")+
+  #facet_wrap(~model,scale = "free")
 ```
 
 

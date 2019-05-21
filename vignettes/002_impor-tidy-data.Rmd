@@ -44,7 +44,7 @@ skim(evals)
 Umumnya berkas `csv` menggunakan penanda koma (,) untuk memisahkan antar kolom dan titik (.) sebagai penanda desimal. Namun bagaimana jika Anda memiliki berkas `csv` yang yang menggunakan titik-koma (;) untuk memisahkan kolom dan koma (,) sebagai penanda desimal? Sebagai contoh, pada direktori `data-raw` terdapar berkas `evals2` yang memiliki kriteria tersebut. Anda dapat menggunakan fungsi `read_csv2` untuk mengimpor berkas tersebut sebagaimana ditunjukan pada contoh berikut:
 
 ```{r}
-evals2 <- read_csv2("../data-raw/evals2.csv")#lebih baik pakai path relative seperti ini dari pada pakai yang absolute seperti evals di atas
+evals2 <- read_csv2("../data-raw/evals2.csv")#lebih baik pakai path relative seperti ini dari pada pakai yang absolute seperti evals di atas. supaya muncul pilihan folder klik tab
 identical(evals, evals2) # fungsi untuk cek kesamaan antara dua obyek
 evals2
 ```
